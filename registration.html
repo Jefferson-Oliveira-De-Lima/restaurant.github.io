@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Restaurant</title>
+
+	<!-- Normalize V8.0.1 -->
+	<link rel="stylesheet" href="./css/normalize.css">
+
+	<!-- MDBootstrap V5 -->
+	<link rel="stylesheet" href="./css/mdb.min.css">
+
+	<!-- Font Awesome V5.15.1 -->
+	<link rel="stylesheet" href="./css/all.css">
+
+	<!-- Sweet Alert V10.13.0 -->
+	<script src="./js/sweetalert2.js" ></script>
+
+	<!-- Styles généraux -->
+	<link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body id="main-body">
+
+	<!-- En-tête -->
+	<header class="header full-box bg-white">
+	    <div class="header-brand full-box">
+	        <a href="index.html">
+	            <img src="./assets/img/logo.png" alt="Designlopers" class="img-fluid">
+	        </a>
+	    </div>
+
+	    <div class="header-options full-box">
+	        <nav class="header-navbar full-box poppins-regular font-weight-bold scroll" onclick="show_menu_mobile()" >
+	            <ul class="list-unstyled full-box" >
+	                <li>
+	                    <a href="index.html" >Accueil</a>
+	                </li>
+	                <li>
+	                    <a href="menu.html" >Menu</a>
+	                </li>
+	                <li>
+	                    <a href="registration.html" >S'inscrire</a>
+	                </li>
+	                <li>
+	                    <a href="signin.html" >Connexion</a>
+	                </li>
+	            </ul>
+	        </nav>
+	        <a href="bag.html" class="header-button full-box text-center" title="Panier" >
+	            <i class="fas fa-shopping-bag"></i>
+	            <span class="badge bg-primary rounded-pill bag-count" >2</span>
+	        </a>
+
+	        <div class="header-button full-box text-center" id="userMenu" data-mdb-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Nom d'utilisateur" >
+	            <i class="fas fa-user-circle"></i>
+	        </div>
+	        <div class="dropdown-menu div-bordered popup-login" aria-labelledby="userMenu">
+	            <p class="text-center" style="padding-top: 10px;">
+	                <i class="fas fa-user-circle fa-3x"></i><br>
+	                <small>Nom d'utilisateur</small>
+	            </p>
+	            <a class="dropdown-item" href="javascript:void(0);">
+	                <i class="fab fa-dashcube fa-fw"></i> &nbsp; Tableau de bord
+	            </a>
+	            <a class="dropdown-item" href="javascript:void(0);">
+	                <i class="fas fa-sign-out-alt"></i> &nbsp; Déconnexion
+	            </a>
+	        </div>
+
+	        <a href="javascript:void(0);" class="header-button full-box text-center d-lg-none" title="Menu" onclick="show_menu_mobile()" >
+	            <i class="fas fa-bars"></i>
+	        </a>
+	    </div>
+	</header>
+
+
+	<!-- Contenu -->
+	<div class="container container-web-page">
+	    <h3 class="font-weight-bold poppins-regular text-uppercase">Créer compte</h3>
+	    <p class="text-justify">En créant un compte sur notre site web, vous acceptez nos <a href="#">termes et conditions</a>. Les informations introduites dans le formulaire doivent être claires, précises et légitimes. Pour créer un compte, vous devez remplir tous les champs obligatoires marqués avec l'icône <i class="fab fa-font-awesome-alt"></i></p>
+	    <hr>
+	    <div class="row">
+	        <div class="col-12">
+	            <form class="div-bordered" action="" style="padding: 15px;">
+
+	                <fieldset>
+				        <legend><i class="far fa-address-card"></i> &nbsp; Informations personnelles</legend>
+	                    <div class="container-fluid">
+	                        <div class="row">
+	                            <div class="col-12 col-md-6">
+	                                <div class="">
+	                                    <select class="form-control" name="cliente_tipo_documento_reg" id="cliente_tipo_documento">
+	                                        <option value="" selected="">Type de document</option>
+	                                        <option value="DNI">1 - DNI</option>
+	                                        <option value="Cedula">2 - Cédula</option>
+	                                        <option value="DUI">3 - DUI</option>
+	                                        <option value="Licencia">4 - Permis de conduire</option>
+	                                        <option value="Pasaporte">5 - Passeport</option>
+	                                        <option value="Otro">6 - Autre</option>
+	                                    </select>
+	                                    <label for="cliente_tipo_documento" class="form-label"></label>
+	                                </div>
+	                            </div>
+
+	                            <div class="col-12 col-md-6">
+	                                <div class="form-outline mb-4">
+	                                    <input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control" name="cliente_numero_documento_reg" id="cliente_numero_documento" maxlength="30">
+	                                    <label for="cliente_numero_documento" class="form-label">Numéro de document <i class="fab fa-font-awesome-alt"></i></label>
+	                                </div>
+	                            </div>
+
+	                            <div class="col-12 col-md-4">
+	                                <div class="form-outline mb-4">
+	                                    <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control" name="cliente_nombre_reg" id="cliente_nombre" maxlength="35">
+	                                    <label for="cliente_nombre" class="form-label">Prénom <i class="fab fa-font-awesome-alt"></i></label>
+	                                </div>
+	                            </div>
+
+	                            <div class="col-12 col-md-4">
+	                                <div class="form-outline mb-4">
+	                                    <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control" name="cliente_apellido_reg" id="cliente_apellido" maxlength="35">
+	                                    <label for="cliente_apellido" class="form-label">Nom <i class="fab fa-font-awesome-alt"></i></label>
+	                                </div>
+	                            </div>
+
+	                            <div class="col-12 col-md-4">
+	                                <div class="form-outline mb-4">
+	                                    <input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="cliente_telefono_reg" id="cliente_telefono" maxlength="20">
+	                                    <label for="cliente_telefono" class="form-label">Téléphone <i class="fab fa-font-awesome-alt"></i></label>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </fieldset>
+
+	                <br><br>
+
+	                <fieldset>
+	                    <legend><i class="fas fa-map-marked-alt"></i> &nbsp; Informations de livraison</legend>
+	                    <div class="container-fluid">
+	                        <div class="row">
+	                            <div class="col-12 col-md-4">
+	                                <div class="form-outline mb-4">
+	                                    <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}" class="form-control" name="cliente_provincia_reg" id="cliente_provincia" maxlength="30">
+	                                    <label for="cliente_provincia" class="form-label">État, province ou département <i class="fab fa-font-awesome-alt"></i></label>
+	                                </div>
+	                            </div>
+	                            <div class="col-12 col-md-4">
+	                                <div class="form-outline mb-4">
+	                                    <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}" class="form-control" name="cliente_ciudad_reg" id="cliente_ciudad" maxlength="30">
+	                                    <label for="cliente_ciudad" class="form-label">Ville ou village <i class="fab fa-font-awesome-alt"></i></label>
+	                                </div>
+	                            </div>
+	                            <div class="col-12 col-md-4">
+	                                <div class="form-outline mb-4">
+	                                    <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{4,70}" class="form-control" name="cliente_direccion_reg" id="cliente_direccion" maxlength="70">
+	                                    <label for="cliente_direccion" class="form-label">Rue ou adresse de la maison <i class="fab fa-font-awesome-alt"></i></label>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </fieldset>
+
+	                <br><br>
+
+	                <fieldset>
+	                    <legend><i class="fas fa-user-lock"></i> &nbsp; Informations de connexion</legend>
+	                    <div class="container-fluid">
+	                        <div class="row">
+	                            <div class="col-12 col-md-4">
+	                                <div class="form-outline mb-4">
+	                                    <input type="email" class="form-control" name="cliente_email_reg" id="cliente_email" maxlength="47">
+	                                    <label for="cliente_email" class="form-label">Email <i class="fab fa-font-awesome-alt"></i></label>
+	                                </div>
+	                            </div>
+	                            <div class="col-12 col-md-4">
+	                                <div class="form-outline mb-4">
+	                                    <input type="password" class="form-control" name="cliente_clave_1_reg" id="cliente_clave_1" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" >
+	                                    <label for="cliente_clave_1" class="form-label">Mot de passe <i class="fab fa-font-awesome-alt"></i></label>
+	                                </div>
+	                            </div>
+	                            <div class="col-12 col-md-4">
+	                                <div class="form-outline mb-4">
+	                                    <input type="password" class="form-control" name="cliente_clave_2_reg" id="cliente_clave_2" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" >
+	                                    <label for="cliente_clave_2" class="form-label">Répéter le mot de passe <i class="fab fa-font-awesome-alt"></i></label>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </fieldset>
+
+	                <p class="text-center" style="margin-top: 40px;">
+	                    <button type="submit" class="btn btn-info btn-sm"><i class="far fa-paper-plane"></i> &nbsp; CRÉER UN COMPTE</button>
+	                </p>
+	                <p class="text-center">
+	                    <small>Les champs marqués avec <i class="fab fa-font-awesome-alt"></i> sont obligatoires</small>
+	                </p>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+
+
+	<!-- Pied de page -->
+	<footer class="footer">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-12 col-md-4">
+	                <ul class="list-unstyled" >
+	                    <li><h5 class="font-weight-bold" ><i class="far fa-copyright"></i> Jeff 2024</h5></li>
+	                    <li> Tous droits réservés (clone site) </li>
+	                </ul>
+	            </div>
+	            <div class="col-12 col-md-4">
+	                <ul class="list-unstyled" >
+	                    <li><h5 class="font-weight-bold" >Bruxelles, Belgique</h5></li>
+	                    <li><i class="fas fa-map-marker-alt fa-fw"></i> Bruxelles, Belgique</li>
+	                </ul>
+	            </div>
+	            <div class="col-12 col-md-4">
+	                <ul class="list-unstyled" >
+	                    <li><h5 class="font-weight-bold" >Suivez-nous sur :</h5> </li>
+	                    <li>
+	                        <i class="fab fa-facebook fa-fw"></i> Facebook
+	                    </li>
+
+	                    <li>
+	                        <i class="fab fa-youtube fa-fw"></i> Youtube
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+	</footer>
+	
+	
+	<!-- MDBootstrap V5 -->
+	<script src="./js/mdb.min.js" ></script>
+
+	<!-- Scripts généraux -->
+	<script src="./js/main.js" ></script>
+</body>
+</html>
